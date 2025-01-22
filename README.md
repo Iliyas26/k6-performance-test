@@ -5,12 +5,23 @@ This project contains a k6 script for load testing using HTTP requests, checking
 ## Project Structure
 
 - `test-script.js` - Contains the main k6 load test script.
+- `K6-with-Kafka.js` - Contains k6 script for Kafka message production and consumption.
 - `README.md` - Documentation for the project.
 
 ## Prerequisites
 
 - [k6](https://k6.io/docs/getting-started/installation/) must be installed on your system.
 
+## Prerequisites For running Kafka with K6
+
+- Install GO tool
+- Install the xk6-kafka extension
+- go install go.k6.io/xk6/cmd/xk6@latest
+- Build the k6 binary
+- xk6 build --with github.com/grafana/xk6-output-kafka
+- Run command from the folder where xk6 is install
+- new command start with .\k6.exe run K6-with-Kafka.js
+  
 ## k6 Script: test-script.js
 
 This script uses `ramping-vus` to simulate users. The performance thresholds and stages are defined as follows:
